@@ -1,0 +1,14 @@
+<section data-ng-controller="DataManagementController" data-ng-init="getExistingSources()">
+	<!-- TODO: Consider putting in a loading indicator -->
+	<!-- TODO: Consider paginating sources -->
+	<div class="container">
+		<a data-ng-repeat="dataset in datasets" class="list-group" data-ng-href="#!/datamanagement/viewexistingsource/{{dataset._id}}">
+			<dl class="dl-horizontal list-group-item">
+				<dt class="list-group-item-text">Dataset Name:</dt><dd class="list-group-item-text">{{dataset.name}}</dd>
+				<dt class="list-group-item-text">Date Loaded:</dt><dd class="list-group-item-text">{{dataset.created | date : 'medium'}}</dd>
+				<dt class="list-group-item-text">From File:</dt><dd class="list-group-item-text">{{dataset.originalFileName}}</dd>
+				<dt class="list-group-item-text">Records:</dt><dd class="list-group-item-text">{{dataset.originalFileContent.length}}</dd>
+			</dl>
+		</a>
+	</div>
+</section>

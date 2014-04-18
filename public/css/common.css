@@ -1,0 +1,58 @@
+html, body, section {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+.small-font {
+	font-size: 8px;
+}
+
+.content {
+	margin-top: 60px;
+}
+
+.btn-margins {
+	margin: 4px;
+}
+
+a.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+
+.left-col-menu {
+	max-width: 300px;
+	min-width: 200px;
+	display: inline-block;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	float: left;
+}
+
+.right-col-content {
+	display: inline-block;
+	float: left;
+	max-width: 800px;
+}
+
+.horizontal-divider {
+	border-top: 1px solid #00CCFF;
+	border-bottom: 3px solid #3399DD;
+	width: 95%;
+	height: 4px;
+	margin: 4px;
+}
+
+.vertical-divider {
+	float: left;
+	border-left: 1px solid #00CCFF;
+	border-right: 3px solid #3399DD;
+	height: 100%;
+	display: inline;
+	width: 4px;
+	margin: 10px;
+}
