@@ -1,5 +1,7 @@
 <section data-ng-controller="HomeController">
-
+	<div data-ng-show="!showMainMenu">
+		Signin or Signup to continue.
+	</div>
     <div class="menu-tiles ng-binding" data-ng-show="showMainMenu" mean-token-editable>
 		<div>
 			<div class="menu-tile ng-binding" ui-sref="datamanagement">

@@ -158,4 +158,4 @@ var ExcelUtil = function (startedCallback, completedCallback) {
 		
 		completedCallback(json);
 	}
-}
+};

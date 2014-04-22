@@ -27,7 +27,7 @@ module.exports = function(db) {
 		description: config.app.description,
 		keywords: config.app.keywords,
 		facebookAppId: config.facebook.clientID,
-		modulesJSFiles: utilities.walk('./public/modules', /(.*)\.(js)/, /(.*)\.(spec.js)/, './public'),
+		modulesJSFiles: utilities.walk('./public/modules', /(.*)\.(js)/, /(.*)\.(spec|worker.js)/, './public'),
 		modulesCSSFiles: utilities.walk('./public/modules', /(.*)\.(css)/, null, './public')
 	});
 
