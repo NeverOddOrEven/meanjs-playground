@@ -1,59 +1,60 @@
 <section data-ng-controller="DataManagementController">
-	<div class="row">
-		<div class="col-md-4">
-			<input ng-file-select type="file" >
-		</div>
-		<div class="col-md-4"/>
-		<div class="col-md-4" ng-file-drop>
-			<div class="well my-drop-zone" ng-file-over>
-				{{fileDropPrompt}}
+	<div data-ng-show="authentication.user">
+		<div class="row">
+			<div class="col-md-4">
+				<input ng-file-select type="file" >
+			</div>
+			<div class="col-md-4"/>
+			<div class="col-md-4" ng-file-drop>
+				<div class="well my-drop-zone" ng-file-over>
+					{{fileDropPrompt}}
+				</div>
 			</div>
 		</div>
-	</div>
-	<div>
-		<hr/>
-	</div>
-
-	<div ng-if="isLoading" class="row">
-		<div class="col-md-4">
-			<span class="glyphicon glyphicon-upload" />
-			<span>Loading your data locally...</span>
+		<div>
+			<hr/>
 		</div>
-		<div class="col-md-4"/>
-		<div class="col-md-4">
-			<span class="glyphicon glyphicon-warning-sign"></span>
-			<span>You must still choose to upload to the cloud</span>
-		</div>
-	</div>
-
-	<div ng-if="pagedData">
-		<form role="form" data-ng-submit="create()">
-			<fieldset>
-				<div class="form-group">
-					<label for="datasetName">Dataset Name</label>
-					<input type="text" data-ng-model="datasetName" class="form-control" id="datasetName" placeholder="Enter Dataset Name" required>
-				</div>
 	
-				<div ng-if="pagedData">
-					<div class="gridStyle" ng-grid="spreadsheetOptions"/>
-				</div>
-
-				<div id="dataset-actions">
-					<div class="row">
-						<div class="col-md-1" ng-if="pagedData">
-							<button type="submit" class="btn btn-success btn-s">
-								<span class="glyphicon glyphicon-upload"></span> Upload all
-							</button>
-						</div>
-						<div class="col-md-1" ng-if="inDatabase">
-							<button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
-								<span class="glyphicon glyphicon-trash"></span> Remove all
-							</button>
+		<div ng-if="isLoading" class="row">
+			<div class="col-md-4">
+				<span class="glyphicon glyphicon-upload" />
+				<span>Loading your data locally...</span>
+			</div>
+			<div class="col-md-4"/>
+			<div class="col-md-4">
+				<span class="glyphicon glyphicon-warning-sign"></span>
+				<span>You must still choose to upload to the cloud</span>
+			</div>
+		</div>
+	
+		<div ng-if="pagedData">
+			<form role="form" data-ng-submit="create()">
+				<fieldset>
+					<div class="form-group">
+						<label for="datasetName">Dataset Name</label>
+						<input type="text" data-ng-model="datasetName" class="form-control" id="datasetName" placeholder="Enter Dataset Name" required>
+					</div>
+		
+					<div ng-if="pagedData">
+						<div class="gridStyle" ng-grid="spreadsheetOptions"/>
+					</div>
+	
+					<div id="dataset-actions">
+						<div class="row">
+							<div class="col-md-1" ng-if="pagedData">
+								<button type="submit" class="btn btn-success btn-s">
+									<span class="glyphicon glyphicon-upload"></span> Upload all
+								</button>
+							</div>
+							<div class="col-md-1" ng-if="inDatabase">
+								<button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+									<span class="glyphicon glyphicon-trash"></span> Remove all
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
-			</fieldset>
-		</form>
+				</fieldset>
+			</form>
+		</div>
 	</div>
-
 </section>

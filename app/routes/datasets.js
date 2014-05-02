@@ -8,9 +8,9 @@ var users = require('../../app/controllers/users'),
 
 module.exports = function(app) {
 	// Datasets Routes
-	app.get('/datasets', datasets.list);
+	app.get('/datasets', users.requiresLogin, datasets.list);
 	app.post('/datasets', users.requiresLogin, datasets.create);
-	app.get('/datasets/:datasetId', datasets.read);
+	app.get('/datasets/:datasetId', users.requiresLogin, datasets.read);
 	//TODO: Support updates eventually
 	//app.put('/datasets/:datasetId', users.requiresLogin, datasets.hasAuthorization, datasets.update);
 	app.del('/datasets/:datasetId', users.requiresLogin, datasets.hasAuthorization, datasets.delete);

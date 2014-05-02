@@ -1,32 +1,37 @@
 <section data-ng-controller="DataManagementController" data-ng-init="getExistingSource()">
-	<!-- TODO: Consider putting in a loading indicator -->
-	<div ng-if="pagedData">
-		<div class="list-group">
-			<div class="list-group-item">
-				<h4 class="list-group-item-heading">Dataset Name: {{datasetname}}</h4>
-				<div class="list-group-item-text">Uploaded: {{createdon | date : 'medium'}}</div>
-				<div class="list-group-item-text">Last Modified: {{originalfilemodified | date : 'medium'}}</div>
-				<p class="list-group-item-text">Original Filename: {{originalfilename}}</p>
-			</div>
-		</div>
-
+	<div data-ng-show="authentication.user">
+		<!-- TODO: Consider putting in a loading indicator -->
 		<div ng-if="pagedData">
-			<div class="gridStyle" ng-grid="spreadsheetOptions"/>
-		</div>
-
-		<div id="dataset-actions">
-			<div class="row">
-				<div class="col-md-1" ng-if="canCreate">
-					<button type="submit" class="btn btn-success btn-s">
-						<span class="glyphicon glyphicon-upload"></span> Save to Cloud
-					</button>
+			<div class="list-group">
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">Dataset Name: {{datasetname}}</h4>
+					<div class="list-group-item-text">Uploaded: {{createdon | date : 'medium'}}</div>
+					<div class="list-group-item-text">Last Modified: {{originalfilemodified | date : 'medium'}}</div>
+					<p class="list-group-item-text">Original Filename: {{originalfilename}}</p>
 				</div>
-				<div class="col-md-1" ng-if="canDelete">
-					<button type="button" class="btn btn-danger btn-s" data-ng-click="remove()">
-						<span class="glyphicon glyphicon-trash"></span> Remove Dataset
-					</button>
+			</div>
+	
+			<div ng-if="pagedData">
+				<div class="gridStyle" ng-grid="spreadsheetOptions"/>
+			</div>
+	
+			<div id="dataset-actions">
+				<div class="row">
+					<div class="col-md-1" ng-if="canCreate">
+						<button type="submit" class="btn btn-success btn-s">
+							<span class="glyphicon glyphicon-upload"></span> Save to Cloud
+						</button>
+					</div>
+					<div class="col-md-1" ng-if="canDelete">
+						<button type="button" class="btn btn-danger btn-s" data-ng-click="remove()">
+							<span class="glyphicon glyphicon-trash"></span> Remove Dataset
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+	<div data-ng-show="!authentication.user">
+		Please Signup or Signin to continue
 	</div>
 </section>

@@ -4,6 +4,11 @@ angular.module('datamanagement').controller('DataManagementController', ['$scope
     function($scope, $stateParams, $location, $fileUploader, Authentication, Datasets) {
         /* Initialize scope variables */
 		$scope.authentication = Authentication;
+		
+		console.log('am i crazy');
+		
+		$scope.wtf = 'hello?';
+		
 		$scope.isLoading = false;
 		$scope.fileDropPrompt = "Drop XLS or XLSX file";
 		$scope.pagingOptions = {
